@@ -17,12 +17,9 @@ const messageTwo = document.querySelector('#message-2');
 messageOne.textContent = '';
 messageTwo.textContent = '';
 
-
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const location = search.value;
-
-    
     messageTwo.textContent = ''
     
     fetch(`http://localhost:3000/weather?address=${location}`).then((response) => {
@@ -32,8 +29,6 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 messageOne.textContent = data.location;
                 messageTwo.textContent = `${data.forecast.description}. Current temperature is ${data.forecast.temperature} and it feels like ${data.forecast.feelslike}`;
-                console.log(data.forecast)
-
             }
         })
     })
